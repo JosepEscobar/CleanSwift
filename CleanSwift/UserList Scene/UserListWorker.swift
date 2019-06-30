@@ -12,9 +12,7 @@
 
 import UIKit
 
-class UserListWorker
-{
-  func doSomeWork()
-  {
+class UserListWorker {
+  func doSomeWork() {
   }
 }

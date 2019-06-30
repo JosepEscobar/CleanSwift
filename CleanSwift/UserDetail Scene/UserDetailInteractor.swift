@@ -12,29 +12,25 @@
 
 import UIKit
 
-protocol UserDetailBusinessLogic
-{
+protocol UserDetailBusinessLogic {
   func doSomething(request: UserDetail.Something.Request)
 }
 
-protocol UserDetailDataStore
-{
+protocol UserDetailDataStore {
   //var name: String { get set }
 }
 
-class UserDetailInteractor: UserDetailBusinessLogic, UserDetailDataStore
-{
+class UserDetailInteractor: UserDetailBusinessLogic, UserDetailDataStore {
   var presenter: UserDetailPresentationLogic?
   var worker: UserDetailWorker?
   //var name: String = ""
-  
+
   // MARK: Do something
-  
-  func doSomething(request: UserDetail.Something.Request)
-  {
+
+  func doSomething(request: UserDetail.Something.Request) {
     worker = UserDetailWorker()
     worker?.doSomeWork()
-    
+
     let response = UserDetail.Something.Response()
     presenter?.presentSomething(response: response)
   }

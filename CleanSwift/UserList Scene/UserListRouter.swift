@@ -12,23 +12,20 @@
 
 import UIKit
 
-@objc protocol UserListRoutingLogic
-{
+@objc protocol UserListRoutingLogic {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol UserListDataPassing
-{
+protocol UserListDataPassing {
   var dataStore: UserListDataStore? { get }
 }
 
-class UserListRouter: NSObject, UserListRoutingLogic, UserListDataPassing
-{
+class UserListRouter: NSObject, UserListRoutingLogic, UserListDataPassing {
   weak var viewController: UserListViewController?
   var dataStore: UserListDataStore?
-  
+
   // MARK: Routing
-  
+
   //func routeToSomewhere(segue: UIStoryboardSegue?)
   //{
   //  if let segue = segue {
@@ -45,14 +42,14 @@ class UserListRouter: NSObject, UserListRoutingLogic, UserListDataPassing
   //}
 
   // MARK: Navigation
-  
+
   //func navigateToSomewhere(source: UserListViewController, destination: SomewhereViewController)
   //{
   //  source.show(destination, sender: nil)
   //}
-  
+
   // MARK: Passing data
-  
+
   //func passDataToSomewhere(source: UserListDataStore, destination: inout SomewhereDataStore)
   //{
   //  destination.name = source.name

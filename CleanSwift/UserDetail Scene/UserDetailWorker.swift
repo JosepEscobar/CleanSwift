@@ -12,9 +12,7 @@
 
 import UIKit
 
-class UserDetailWorker
-{
-  func doSomeWork()
-  {
+class UserDetailWorker {
+  func doSomeWork() {
   }
 }

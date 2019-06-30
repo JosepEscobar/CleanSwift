@@ -12,19 +12,16 @@
 
 import UIKit
 
-protocol UserListPresentationLogic
-{
+protocol UserListPresentationLogic {
   func presentSomething(response: UserList.Something.Response)
 }
 
-class UserListPresenter: UserListPresentationLogic
-{
+class UserListPresenter: UserListPresentationLogic {
   weak var viewController: UserListDisplayLogic?
-  
+
   // MARK: Do something
-  
-  func presentSomething(response: UserList.Something.Response)
-  {
+
+  func presentSomething(response: UserList.Something.Response) {
     let viewModel = UserList.Something.ViewModel()
     viewController?.displaySomething(viewModel: viewModel)
   }
