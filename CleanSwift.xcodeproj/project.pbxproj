@@ -14,6 +14,7 @@
 		48199C7C22C8E6F800DAAE0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48199C7A22C8E6F800DAAE0B /* LaunchScreen.storyboard */; };
 		48199C8722C8E6F800DAAE0B /* CleanSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48199C8622C8E6F800DAAE0B /* CleanSwiftTests.swift */; };
 		48199C9222C8E6F800DAAE0B /* CleanSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48199C9122C8E6F800DAAE0B /* CleanSwiftUITests.swift */; };
+		48684C1122C8EBF600E17376 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 48684C1022C8EBF600E17376 /* README */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		48199C8D22C8E6F800DAAE0B /* CleanSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48199C9122C8E6F800DAAE0B /* CleanSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanSwiftUITests.swift; sourceTree = "<group>"; };
 		48199C9322C8E6F900DAAE0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48684C1022C8EBF600E17376 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		48199C6522C8E6F400DAAE0B = {
 			isa = PBXGroup;
 			children = (
+				48684C1022C8EBF600E17376 /* README */,
 				48199C7022C8E6F400DAAE0B /* CleanSwift */,
 				48199C8522C8E6F800DAAE0B /* CleanSwiftTests */,
 				48199C9022C8E6F800DAAE0B /* CleanSwiftUITests */,
@@ -229,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48684C1122C8EBF600E17376 /* README in Resources */,
 				48199C7C22C8E6F800DAAE0B /* LaunchScreen.storyboard in Resources */,
 				48199C7922C8E6F800DAAE0B /* Assets.xcassets in Resources */,
 				48199C7722C8E6F400DAAE0B /* Main.storyboard in Resources */,
