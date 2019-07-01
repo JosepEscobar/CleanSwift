@@ -43,6 +43,8 @@
 		48684C4B22CA47C000E17376 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4422CA415200E17376 /* Location.swift */; };
 		48684C4E22CA508800E17376 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4D22CA508800E17376 /* UserListTableViewCell.swift */; };
 		48684C5022CA84BD00E17376 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4F22CA84BD00E17376 /* SequenceExtensions.swift */; };
+		48684C5222CA885500E17376 /* UniqueElementsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C5122CA885500E17376 /* UniqueElementsTest.swift */; };
+		48684C5322CA89B100E17376 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4F22CA84BD00E17376 /* SequenceExtensions.swift */; };
 		4E60DBC0CFACA13911593C74 /* Pods_CleanSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E255BEB8553889B5ACD4A201 /* Pods_CleanSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,7 @@
 		48684C4822CA476E00E17376 /* NetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
 		48684C4D22CA508800E17376 /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
 		48684C4F22CA84BD00E17376 /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
+		48684C5122CA885500E17376 /* UniqueElementsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueElementsTest.swift; sourceTree = "<group>"; };
 		6650DC86DE43A45D8111FC4E /* Pods-CleanSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanSwift.debug.xcconfig"; path = "Target Support Files/Pods-CleanSwift/Pods-CleanSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		682DA60B976489F46656B086 /* Pods-CleanSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-CleanSwiftTests/Pods-CleanSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		773CBBBCACE38C264460122B /* Pods-CleanSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-CleanSwiftUITests/Pods-CleanSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +195,7 @@
 			children = (
 				48199C8622C8E6F800DAAE0B /* CleanSwiftTests.swift */,
 				48684C4822CA476E00E17376 /* NetworkManagerTest.swift */,
+				48684C5122CA885500E17376 /* UniqueElementsTest.swift */,
 				48199C8822C8E6F800DAAE0B /* Info.plist */,
 			);
 			path = CleanSwiftTests;
@@ -557,12 +561,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				48684C4022CA2C7E00E17376 /* User.swift in Sources */,
+				48684C5322CA89B100E17376 /* SequenceExtensions.swift in Sources */,
 				48684C3F22CA2BCD00E17376 /* NetworkManager.swift in Sources */,
 				48684C4122CA2C8200E17376 /* EndpointConstants.swift in Sources */,
 				48684C4922CA476E00E17376 /* NetworkManagerTest.swift in Sources */,
 				48199C8722C8E6F800DAAE0B /* CleanSwiftTests.swift in Sources */,
 				48684C4A22CA47BC00E17376 /* UserResponse.swift in Sources */,
 				48684C4B22CA47C000E17376 /* Location.swift in Sources */,
+				48684C5222CA885500E17376 /* UniqueElementsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

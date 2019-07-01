@@ -15,7 +15,7 @@ class UserListWorker {
         guard !isBusy else { return }
         isBusy = true
         NetworkManager().getUsers { users in
-            completionHandler(self.checkDuplicates(users: users))
+            completionHandler(users.uniqueElements)
             self.isBusy = false
         }
     }
@@ -26,12 +26,10 @@ class UserListWorker {
         NetworkManager().getUsers { users in
             var mergedArray = oldUsersArray
             mergedArray.append(contentsOf: users)
-            completionHandler(self.checkDuplicates(users: mergedArray))
+            completionHandler(mergedArray.uniqueElements)
             self.isBusy = false
         }
     }
     
-    private func checkDuplicates(users: [User]) -> [User] {
-        return users.uniqueElements
-    }
+  
 }
