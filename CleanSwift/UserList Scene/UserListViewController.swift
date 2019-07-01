@@ -74,6 +74,8 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     func configureUI(){
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 90
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func loadInitialData() {
@@ -99,7 +101,9 @@ extension UserListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "UserListCell", for: indexPath) as? UserListTableViewCell {
             cell.setupCell(name: viewModel.getfullUserName(index: indexPath.row),
-                           avatarUrl: viewModel.getAvatarImage(index: indexPath.row))
+                           avatarUrl: viewModel.getAvatarImage(index: indexPath.row),
+                           email: viewModel.getEmail(index: indexPath.row),
+                           phone: viewModel.getPhone(index: indexPath.row))
             return cell
         } else {
             return UITableViewCell()

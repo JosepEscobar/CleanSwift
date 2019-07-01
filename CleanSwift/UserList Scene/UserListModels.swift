@@ -54,6 +54,30 @@ enum UserList {
                 }
                 return avatarUrl
             }
+            
+            
+            /// Get user Email
+            ///
+            /// - Parameter index: Index from User array
+            /// - Returns: returns email value, never returns nil
+            func getEmail(index: Int) -> String {
+                guard let email = users[index].email else {
+                    return "No email"
+                }
+                return email
+            }
+            
+            
+            /// Get user Phone
+            ///
+            /// - Parameter index: Index from User array
+            /// - Returns: returns phone value, never returns nil
+            func getPhone(index: Int) -> String {
+                guard let phone = users[index].phone else {
+                    return "No phone"
+                }
+                return phone
+            }
         }
     }
 }
