@@ -13,25 +13,25 @@
 import UIKit
 
 protocol UserDetailBusinessLogic {
-  func doSomething(request: UserDetail.Something.Request)
+    func doSomething(request: UserDetail.Something.Request)
 }
 
 protocol UserDetailDataStore {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
 class UserDetailInteractor: UserDetailBusinessLogic, UserDetailDataStore {
-  var presenter: UserDetailPresentationLogic?
-  var worker: UserDetailWorker?
-  //var name: String = ""
+    var presenter: UserDetailPresentationLogic?
+    var worker: UserDetailWorker?
+    //var name: String = ""
 
-  // MARK: Do something
+    // MARK: Do something
 
-  func doSomething(request: UserDetail.Something.Request) {
-    worker = UserDetailWorker()
-    worker?.doSomeWork()
+    func doSomething(request: UserDetail.Something.Request) {
+        worker = UserDetailWorker()
+        worker?.doSomeWork()
 
-    let response = UserDetail.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+        let response = UserDetail.Something.Response()
+        presenter?.presentSomething(response: response)
+    }
 }

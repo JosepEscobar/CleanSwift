@@ -13,25 +13,25 @@
 import UIKit
 
 protocol UserListBusinessLogic {
-  func doSomething(request: UserList.Something.Request)
+    func doSomething(request: UserList.Something.Request)
 }
 
 protocol UserListDataStore {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
 class UserListInteractor: UserListBusinessLogic, UserListDataStore {
-  var presenter: UserListPresentationLogic?
-  var worker: UserListWorker?
-  //var name: String = ""
+    var presenter: UserListPresentationLogic?
+    var worker: UserListWorker?
+    //var name: String = ""
 
-  // MARK: Do something
+    // MARK: Do something
 
-  func doSomething(request: UserList.Something.Request) {
-    worker = UserListWorker()
-    worker?.doSomeWork()
+    func doSomething(request: UserList.Something.Request) {
+        worker = UserListWorker()
+        worker?.doSomeWork()
 
-    let response = UserList.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+        let response = UserList.Something.Response()
+        presenter?.presentSomething(response: response)
+    }
 }

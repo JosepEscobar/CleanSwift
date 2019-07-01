@@ -13,6 +13,6 @@
 import UIKit
 
 class UserListWorker {
-  func doSomeWork() {
-  }
+    func doSomeWork() {
+    }
 }

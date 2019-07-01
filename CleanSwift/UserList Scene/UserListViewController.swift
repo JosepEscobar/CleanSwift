@@ -13,68 +13,68 @@
 import UIKit
 
 protocol UserListDisplayLogic: class {
-  func displaySomething(viewModel: UserList.Something.ViewModel)
+    func displaySomething(viewModel: UserList.Something.ViewModel)
 }
 
 class UserListViewController: UIViewController, UserListDisplayLogic {
-  var interactor: UserListBusinessLogic?
-  var router: (NSObjectProtocol & UserListRoutingLogic & UserListDataPassing)?
+    var interactor: UserListBusinessLogic?
+    var router: (NSObjectProtocol & UserListRoutingLogic & UserListDataPassing)?
 
-  // MARK: Object lifecycle
+    // MARK: Object lifecycle
 
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    setup()
-  }
-
-  // MARK: Setup
-
-  private func setup() {
-    let viewController = self
-    let interactor = UserListInteractor()
-    let presenter = UserListPresenter()
-    let router = UserListRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-
-  // MARK: Routing
-
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
     }
-  }
 
-  // MARK: View lifecycle
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    doSomething()
-  }
+    // MARK: Setup
 
-  // MARK: Do something
+    private func setup() {
+        let viewController = self
+        let interactor = UserListInteractor()
+        let presenter = UserListPresenter()
+        let router = UserListRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
 
-  //@IBOutlet weak var nameTextField: UITextField!
+    // MARK: Routing
 
-  func doSomething() {
-    let request = UserList.Something.Request()
-    interactor?.doSomething(request: request)
-  }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
 
-  func displaySomething(viewModel: UserList.Something.ViewModel) {
-    //nameTextField.text = viewModel.name
-  }
+    // MARK: View lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        doSomething()
+    }
+
+    // MARK: Do something
+
+    //@IBOutlet weak var nameTextField: UITextField!
+
+    func doSomething() {
+        let request = UserList.Something.Request()
+        interactor?.doSomething(request: request)
+    }
+
+    func displaySomething(viewModel: UserList.Something.ViewModel) {
+        //nameTextField.text = viewModel.name
+    }
 }
