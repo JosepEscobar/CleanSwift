@@ -9,7 +9,7 @@
 import UIKit
 
 protocol UserListPresentationLogic {
-    func presentInitialData(response: UserList.LoadData.Response)
+    func presentData(response: UserList.LoadData.Response)
     func presentUserDetail(response: UserList.UserDetail.Response)
 }
 
@@ -18,7 +18,7 @@ class UserListPresenter: UserListPresentationLogic {
 
     // MARK: Do something
 
-    func presentInitialData(response: UserList.LoadData.Response) {
+    func presentData(response: UserList.LoadData.Response) {
         let viewModel = UserList.LoadData.ViewModel(users: response.users)
         viewController?.displayInitialData(viewModel: viewModel)
     }

@@ -10,6 +10,7 @@ import UIKit
 
 protocol UserListBusinessLogic {
     func doLoadInitialData(request: UserList.LoadData.Request)
+    func doLoadMoreData(request: UserList.LoadData.Request)
     func doLoadUserDetail(request: UserList.UserDetail.Request)
 }
 
@@ -22,7 +23,6 @@ class UserListInteractor: UserListBusinessLogic, UserListDataStore {
     var presenter: UserListPresentationLogic?
     var worker: UserListWorker?
     var user: User?
-    //var name: String = ""
 
     // MARK: Do something
 
@@ -30,9 +30,18 @@ class UserListInteractor: UserListBusinessLogic, UserListDataStore {
         worker = UserListWorker()
         worker?.fetchUsers(completionHandler: { users in
             let response = UserList.LoadData.Response(users: users)
-            self.presenter?.presentInitialData(response: response)
+            self.presenter?.presentData(response: response)
         })
-
+    }
+    
+    func doLoadMoreData(request: UserList.LoadData.Request) {
+        if let usersArray = request.users {
+            worker = UserListWorker()
+            worker?.fetchMoreUsers(oldUsersArray: usersArray, completionHandler: { users in
+                let response = UserList.LoadData.Response(users: users)
+                self.presenter?.presentData(response: response)
+            })
+        }
     }
 
     func doLoadUserDetail(request: UserList.UserDetail.Request) {

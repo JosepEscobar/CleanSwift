@@ -9,9 +9,30 @@
 import UIKit
 
 class UserListWorker {
+    private var isBusy = false
+    
     func fetchUsers(completionHandler: @escaping ([User]) -> Void) {
+        guard !isBusy else { return }
+        isBusy = true
         NetworkManager().getUsers { users in
             completionHandler(users)
+            self.isBusy = false
         }
+    }
+    
+    func fetchMoreUsers(oldUsersArray: [User], completionHandler: @escaping ([User]) -> Void) {
+        guard !isBusy else { return }
+        isBusy = true
+        NetworkManager().getUsers { users in
+            var mergedArray = oldUsersArray
+            mergedArray.append(contentsOf: users)
+            completionHandler(self.checkDuplicates(users: mergedArray))
+            self.isBusy = false
+        }
+    }
+    
+    private func checkDuplicates(users: [User]) -> [User] {
+        // TODO: Check duplicates
+        return users
     }
 }

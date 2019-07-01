@@ -13,6 +13,7 @@ enum UserList {
 
     enum LoadData {
         struct Request {
+            let users: [User]?
         }
         struct Response {
             let users: [User]

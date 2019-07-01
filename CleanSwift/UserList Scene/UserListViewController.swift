@@ -72,7 +72,7 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     }
 
     func loadInitialData() {
-        let request = UserList.LoadData.Request()
+        let request = UserList.LoadData.Request(users: nil)
         interactor?.doLoadInitialData(request: request)
     }
 
@@ -88,6 +88,13 @@ extension UserListViewController: UITableViewDelegate {
         let user = viewModel.users[indexPath.row]
         let request = UserList.UserDetail.Request(user: user)
         interactor?.doLoadUserDetail(request: request)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 5 == self.viewModel.getNumberOfUsers() {
+            let request = UserList.LoadData.Request(users: self.viewModel.users)
+            interactor?.doLoadMoreData(request: request)
+        }
     }
 }
 
