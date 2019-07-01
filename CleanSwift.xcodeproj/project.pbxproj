@@ -29,6 +29,16 @@
 		48684C3022CA157800E17376 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C2F22CA157800E17376 /* NetworkManager.swift */; };
 		48684C3422CA16CD00E17376 /* UserDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48684C3322CA16CD00E17376 /* UserDetail.storyboard */; };
 		48684C3722CA192400E17376 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C3622CA192400E17376 /* User.swift */; };
+		48684C3922CA271800E17376 /* EndpointConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C3822CA271800E17376 /* EndpointConstants.swift */; };
+		48684C3C22CA295E00E17376 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C3B22CA295E00E17376 /* DictionaryExtensions.swift */; };
+		48684C3F22CA2BCD00E17376 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C2F22CA157800E17376 /* NetworkManager.swift */; };
+		48684C4022CA2C7E00E17376 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C3622CA192400E17376 /* User.swift */; };
+		48684C4122CA2C8200E17376 /* EndpointConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C3822CA271800E17376 /* EndpointConstants.swift */; };
+		48684C4522CA415200E17376 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4422CA415200E17376 /* Location.swift */; };
+		48684C4722CA46D400E17376 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4622CA46D400E17376 /* UserResponse.swift */; };
+		48684C4922CA476E00E17376 /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4822CA476E00E17376 /* NetworkManagerTest.swift */; };
+		48684C4A22CA47BC00E17376 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4622CA46D400E17376 /* UserResponse.swift */; };
+		48684C4B22CA47C000E17376 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4422CA415200E17376 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +87,11 @@
 		48684C2F22CA157800E17376 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		48684C3322CA16CD00E17376 /* UserDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDetail.storyboard; sourceTree = "<group>"; };
 		48684C3622CA192400E17376 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		48684C3822CA271800E17376 /* EndpointConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointConstants.swift; sourceTree = "<group>"; };
+		48684C3B22CA295E00E17376 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
+		48684C4422CA415200E17376 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		48684C4622CA46D400E17376 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		48684C4822CA476E00E17376 /* NetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,9 +143,10 @@
 		48199C7022C8E6F400DAAE0B /* CleanSwift */ = {
 			isa = PBXGroup;
 			children = (
-				48684C2E22CA151F00E17376 /* Network */,
 				48684C1222C8F0AC00E17376 /* UserList Scene */,
 				48684C1F22C8F0D800E17376 /* UserDetail Scene */,
+				48684C2E22CA151F00E17376 /* Network */,
+				48684C3A22CA291F00E17376 /* Extensions */,
 				48684C2D22C8F86300E17376 /* Resources */,
 				48199C7122C8E6F400DAAE0B /* AppDelegate.swift */,
 			);
@@ -141,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				48199C8622C8E6F800DAAE0B /* CleanSwiftTests.swift */,
+				48684C4822CA476E00E17376 /* NetworkManagerTest.swift */,
 				48199C8822C8E6F800DAAE0B /* Info.plist */,
 			);
 			path = CleanSwiftTests;
@@ -198,6 +215,7 @@
 			children = (
 				48684C3522CA191000E17376 /* Models */,
 				48684C2F22CA157800E17376 /* NetworkManager.swift */,
+				48684C3822CA271800E17376 /* EndpointConstants.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -222,8 +240,18 @@
 			isa = PBXGroup;
 			children = (
 				48684C3622CA192400E17376 /* User.swift */,
+				48684C4422CA415200E17376 /* Location.swift */,
+				48684C4622CA46D400E17376 /* UserResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		48684C3A22CA291F00E17376 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				48684C3B22CA295E00E17376 /* DictionaryExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,12 +391,16 @@
 				48684C2722C8F0F500E17376 /* UserDetailWorker.swift in Sources */,
 				48684C2B22C8F0F500E17376 /* UserDetailInteractor.swift in Sources */,
 				48684C2A22C8F0F500E17376 /* UserDetailViewController.swift in Sources */,
+				48684C4522CA415200E17376 /* Location.swift in Sources */,
 				48684C1E22C8F0CD00E17376 /* UserListInteractor.swift in Sources */,
+				48684C3922CA271800E17376 /* EndpointConstants.swift in Sources */,
 				48684C1C22C8F0CD00E17376 /* UserListModels.swift in Sources */,
 				48684C1A22C8F0CD00E17376 /* UserListWorker.swift in Sources */,
 				48684C1922C8F0CD00E17376 /* UserListPresenter.swift in Sources */,
 				48684C3722CA192400E17376 /* User.swift in Sources */,
+				48684C3C22CA295E00E17376 /* DictionaryExtensions.swift in Sources */,
 				48684C2822C8F0F500E17376 /* UserDetailRouter.swift in Sources */,
+				48684C4722CA46D400E17376 /* UserResponse.swift in Sources */,
 				48684C3022CA157800E17376 /* NetworkManager.swift in Sources */,
 				48684C2622C8F0F500E17376 /* UserDetailPresenter.swift in Sources */,
 				48199C7222C8E6F400DAAE0B /* AppDelegate.swift in Sources */,
@@ -381,7 +413,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48684C4022CA2C7E00E17376 /* User.swift in Sources */,
+				48684C3F22CA2BCD00E17376 /* NetworkManager.swift in Sources */,
+				48684C4122CA2C8200E17376 /* EndpointConstants.swift in Sources */,
+				48684C4922CA476E00E17376 /* NetworkManagerTest.swift in Sources */,
 				48199C8722C8E6F800DAAE0B /* CleanSwiftTests.swift in Sources */,
+				48684C4A22CA47BC00E17376 /* UserResponse.swift in Sources */,
+				48684C4B22CA47C000E17376 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
