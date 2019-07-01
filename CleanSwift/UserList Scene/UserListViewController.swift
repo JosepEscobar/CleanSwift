@@ -13,12 +13,13 @@
 import UIKit
 
 protocol UserListDisplayLogic: class {
-    func displaySomething(viewModel: UserList.Something.ViewModel)
+    func displayInitialData(viewModel: UserList.LoadData.ViewModel)
 }
 
 class UserListViewController: UIViewController, UserListDisplayLogic {
     var interactor: UserListBusinessLogic?
     var router: (NSObjectProtocol & UserListRoutingLogic & UserListDataPassing)?
+    var usersArray: [User]?
 
     // MARK: Object lifecycle
 
@@ -45,6 +46,7 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
+        usersArray = []
     }
 
     // MARK: Routing
@@ -62,19 +64,20 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        loadInitialData()
     }
 
     // MARK: Do something
 
     //@IBOutlet weak var nameTextField: UITextField!
 
-    func doSomething() {
-        let request = UserList.Something.Request()
-        interactor?.doSomething(request: request)
+    func loadInitialData() {
+        let request = UserList.LoadData.Request()
+        interactor?.doLoadInitialData(request: request)
     }
 
-    func displaySomething(viewModel: UserList.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayInitialData(viewModel: UserList.LoadData.ViewModel) {
+        // TODO : Load correct format data
+        usersArray = viewModel.users
     }
 }

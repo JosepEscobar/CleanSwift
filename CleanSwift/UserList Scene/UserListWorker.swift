@@ -13,6 +13,9 @@
 import UIKit
 
 class UserListWorker {
-    func doSomeWork() {
+    func fetchUsers(completionHandler: @escaping ([User]) -> Void) {
+        NetworkManager().getUsers { users in
+            completionHandler(users)
+        }
     }
 }

@@ -15,12 +15,15 @@ import UIKit
 enum UserList {
     // MARK: Use cases
 
-    enum Something {
+    enum LoadData {
         struct Request {
         }
         struct Response {
+            let users: [User]
         }
         struct ViewModel {
+            // Todo: Return only needed data and formated
+            let users: [User]
         }
     }
 }

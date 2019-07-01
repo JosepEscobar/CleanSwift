@@ -29,7 +29,6 @@ class NetworkManager {
                         print(error.localizedDescription)
                         completionHandler(arrayUsers)
                     }
-
                 }
             }
         }.resume()

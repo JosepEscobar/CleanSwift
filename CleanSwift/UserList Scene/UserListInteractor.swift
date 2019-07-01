@@ -13,7 +13,7 @@
 import UIKit
 
 protocol UserListBusinessLogic {
-    func doSomething(request: UserList.Something.Request)
+    func doLoadInitialData(request: UserList.LoadData.Request)
 }
 
 protocol UserListDataStore {
@@ -27,11 +27,13 @@ class UserListInteractor: UserListBusinessLogic, UserListDataStore {
 
     // MARK: Do something
 
-    func doSomething(request: UserList.Something.Request) {
+    func doLoadInitialData(request: UserList.LoadData.Request) {
         worker = UserListWorker()
-        worker?.doSomeWork()
+        worker?.fetchUsers(completionHandler: { users in
+            let response = UserList.LoadData.Response(users: users)
+            self.presenter?.presentInitialData(response: response)
+        })
 
-        let response = UserList.Something.Response()
-        presenter?.presentSomething(response: response)
+        
     }
 }
