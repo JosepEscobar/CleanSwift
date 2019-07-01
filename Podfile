@@ -6,7 +6,7 @@ target 'CleanSwift' do
   use_frameworks!
 
   # Pods for CleanSwift
-  pod 'Kingfisher', '~> 5.0'
+  pod 'Kingfisher', '~> 4.0'
 
   target 'CleanSwiftTests' do
     inherit! :search_paths

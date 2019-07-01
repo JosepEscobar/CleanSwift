@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserListTableViewCell: UITableViewCell {
     
@@ -24,12 +25,13 @@ class UserListTableViewCell: UITableViewCell {
         nameLabel.text = name
         emailLabel.text = email
         phoneLabel.text = phone
-        
+        if let url = URL(string: avatarUrl) {
+            avatarImageView.kf.setImage(with: url)
+        }
         setCircleAvatar()
     }
     
     func setCircleAvatar() {
-        avatarImageView.layer.borderWidth = 1
         avatarImageView.layer.masksToBounds = false
         avatarImageView.layer.borderColor = UIColor.black.cgColor
         avatarImageView.layer.cornerRadius = avatarImageView.frame.height/2

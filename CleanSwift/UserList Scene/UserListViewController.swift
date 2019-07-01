@@ -76,6 +76,7 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         tableView.dataSource = self
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableView.automaticDimension
+        title = "Users"
     }
     
     func loadInitialData() {

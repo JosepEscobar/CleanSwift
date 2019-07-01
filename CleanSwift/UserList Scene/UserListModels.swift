@@ -41,7 +41,7 @@ enum UserList {
                       let lastName = users[index].name?.last else {
                         return "No name"
                 }
-                return "\(firstName) \(lastName)"
+                return "\(firstName) \(lastName)".capitalized
             }
             
             /// Get avatar URL
