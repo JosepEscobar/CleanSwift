@@ -14,6 +14,7 @@ import UIKit
 
 protocol UserListDisplayLogic: class {
     func displayInitialData(viewModel: UserList.LoadData.ViewModel)
+    func displayUserDetail(viewModel: UserList.UserDetail.ViewModel)
 }
 
 class UserListViewController: UIViewController, UserListDisplayLogic {
@@ -88,10 +89,18 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         self.viewModel = viewModel
         tableView.reloadData()
     }
+    
+    func displayUserDetail(viewModel: UserList.UserDetail.ViewModel) {
+        router?.routeToDetail()
+    }
 }
 
 extension UserListViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = viewModel.users[indexPath.row]
+        let request = UserList.UserDetail.Request(user: user)
+        interactor?.doLoadUserDetail(request: request)
+    }
 }
 
 extension UserListViewController: UITableViewDataSource {

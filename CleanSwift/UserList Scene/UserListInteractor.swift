@@ -14,15 +14,18 @@ import UIKit
 
 protocol UserListBusinessLogic {
     func doLoadInitialData(request: UserList.LoadData.Request)
+    func doLoadUserDetail(request: UserList.UserDetail.Request)
 }
 
 protocol UserListDataStore {
-    //var name: String { get set }
+    var user: User? { get set }
 }
 
 class UserListInteractor: UserListBusinessLogic, UserListDataStore {
+    
     var presenter: UserListPresentationLogic?
     var worker: UserListWorker?
+    var user: User?
     //var name: String = ""
 
     // MARK: Do something
@@ -35,4 +38,11 @@ class UserListInteractor: UserListBusinessLogic, UserListDataStore {
         })
 
     }
+    
+    func doLoadUserDetail(request: UserList.UserDetail.Request) {
+        user = request.user
+        let response = UserList.UserDetail.Response()
+        presenter?.presentUserDetail(response: response)
+    }
+
 }

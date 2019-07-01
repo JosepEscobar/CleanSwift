@@ -14,6 +14,7 @@ import UIKit
 
 protocol UserListPresentationLogic {
     func presentInitialData(response: UserList.LoadData.Response)
+    func presentUserDetail(response: UserList.UserDetail.Response)
 }
 
 class UserListPresenter: UserListPresentationLogic {
@@ -24,5 +25,10 @@ class UserListPresenter: UserListPresentationLogic {
     func presentInitialData(response: UserList.LoadData.Response) {
         let viewModel = UserList.LoadData.ViewModel(users: response.users)
         viewController?.displayInitialData(viewModel: viewModel)
+    }
+    
+    func presentUserDetail(response: UserList.UserDetail.Response) {
+        let viewModel = UserList.UserDetail.ViewModel()
+        viewController?.displayUserDetail(viewModel: viewModel)
     }
 }

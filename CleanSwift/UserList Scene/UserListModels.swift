@@ -78,4 +78,15 @@ enum UserList {
             }
         }
     }
+    
+    enum UserDetail {
+        struct Request {
+            let user: User
+        }
+        struct Response {
+        }
+        struct ViewModel {
+        }
+
+    }
 }

@@ -17,12 +17,13 @@ protocol UserDetailBusinessLogic {
 }
 
 protocol UserDetailDataStore {
-    //var name: String { get set }
+    var user: User? { get set }
 }
 
 class UserDetailInteractor: UserDetailBusinessLogic, UserDetailDataStore {
     var presenter: UserDetailPresentationLogic?
     var worker: UserDetailWorker?
+    var user: User?
     //var name: String = ""
 
     // MARK: Do something

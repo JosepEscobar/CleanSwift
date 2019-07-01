@@ -63,6 +63,7 @@ class UserDetailViewController: UIViewController, UserDetailDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         doSomething()
+        print(router?.dataStore?.user)
     }
 
     // MARK: Do something
