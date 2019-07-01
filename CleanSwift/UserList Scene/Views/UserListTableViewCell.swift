@@ -10,17 +10,16 @@ import UIKit
 import Kingfisher
 
 class UserListTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-    
+
     func setupCell(name: String, avatarUrl: String, email: String, phone: String) {
         nameLabel.text = name
         emailLabel.text = email
@@ -30,7 +29,7 @@ class UserListTableViewCell: UITableViewCell {
         }
         setCircleAvatar()
     }
-    
+
     func setCircleAvatar() {
         avatarImageView.layer.masksToBounds = false
         avatarImageView.layer.borderColor = UIColor.black.cgColor
@@ -41,8 +40,6 @@ class UserListTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

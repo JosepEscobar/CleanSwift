@@ -34,6 +34,5 @@ class UserListInteractor: UserListBusinessLogic, UserListDataStore {
             self.presenter?.presentInitialData(response: response)
         })
 
-        
     }
 }

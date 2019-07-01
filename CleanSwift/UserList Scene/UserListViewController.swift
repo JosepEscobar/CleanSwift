@@ -20,7 +20,7 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     var interactor: UserListBusinessLogic?
     var router: (NSObjectProtocol & UserListRoutingLogic & UserListDataPassing)?
     var viewModel = UserList.LoadData.ViewModel(users: [])
-    
+
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: Object lifecycle
@@ -70,15 +70,15 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     }
 
     // MARK: Do something
-    
-    func configureUI(){
+
+    func configureUI() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableView.automaticDimension
         title = "Users"
     }
-    
+
     func loadInitialData() {
         let request = UserList.LoadData.Request()
         interactor?.doLoadInitialData(request: request)
@@ -91,14 +91,14 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
 }
 
 extension UserListViewController: UITableViewDelegate {
-    
+
 }
 
 extension UserListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getNumberOfUsers()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "UserListCell", for: indexPath) as? UserListTableViewCell {
             cell.setupCell(name: viewModel.getfullUserName(index: indexPath.row),
@@ -110,6 +110,5 @@ extension UserListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
     }
-    
-    
+
 }

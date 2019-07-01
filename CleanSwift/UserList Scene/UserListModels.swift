@@ -24,14 +24,14 @@ enum UserList {
         struct ViewModel {
 
             let users: [User]
-            
+
             /// Returns number of users can be returned
             ///
             /// - Returns: Number of users
             func getNumberOfUsers() -> Int {
                 return users.count
             }
-            
+
             /// Format User name with First name and Last name
             ///
             /// - Parameter index: Index from User array
@@ -43,7 +43,7 @@ enum UserList {
                 }
                 return "\(firstName) \(lastName)".capitalized
             }
-            
+
             /// Get avatar URL
             ///
             /// - Parameter index: Index from User array
@@ -54,8 +54,7 @@ enum UserList {
                 }
                 return avatarUrl
             }
-            
-            
+
             /// Get user Email
             ///
             /// - Parameter index: Index from User array
@@ -66,8 +65,7 @@ enum UserList {
                 }
                 return email
             }
-            
-            
+
             /// Get user Phone
             ///
             /// - Parameter index: Index from User array
