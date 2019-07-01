@@ -19,7 +19,7 @@ protocol UserListDisplayLogic: class {
 class UserListViewController: UIViewController, UserListDisplayLogic {
     var interactor: UserListBusinessLogic?
     var router: (NSObjectProtocol & UserListRoutingLogic & UserListDataPassing)?
-    var usersArray: [User]?
+    var viewModel = UserList.LoadData.ViewModel(users: [])
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -48,7 +48,6 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
-        usersArray = []
     }
 
     // MARK: Routing
@@ -83,8 +82,7 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     }
 
     func displayInitialData(viewModel: UserList.LoadData.ViewModel) {
-        // TODO : Load correct format data
-        usersArray = viewModel.users
+        self.viewModel = viewModel
         tableView.reloadData()
     }
 }
@@ -95,12 +93,13 @@ extension UserListViewController: UITableViewDelegate {
 
 extension UserListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usersArray?.count ?? 0
+        return viewModel.getNumberOfUsers()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "UserListCell", for: indexPath) as? UserListTableViewCell {
-            cell.setupCell(name: usersArray?[indexPath.row].name?.first ?? "", avatarUrl: "")
+            cell.setupCell(name: viewModel.getfullUserName(index: indexPath.row),
+                           avatarUrl: viewModel.getAvatarImage(index: indexPath.row))
             return cell
         } else {
             return UITableViewCell()

@@ -22,8 +22,38 @@ enum UserList {
             let users: [User]
         }
         struct ViewModel {
-            // Todo: Return only needed data and formated
+
             let users: [User]
+            
+            /// Returns number of users can be returned
+            ///
+            /// - Returns: Number of users
+            func getNumberOfUsers() -> Int {
+                return users.count
+            }
+            
+            /// Format User name with First name and Last name
+            ///
+            /// - Parameter index: Index from User array
+            /// - Returns: returns formated value, never returns nil
+            func getfullUserName(index: Int) -> String {
+                guard let firstName = users[index].name?.first,
+                      let lastName = users[index].name?.last else {
+                        return "No name"
+                }
+                return "\(firstName) \(lastName)"
+            }
+            
+            /// Get avatar URL
+            ///
+            /// - Parameter index: Index from User array
+            /// - Returns: returns URL in String format, never returns nil
+            func getAvatarImage(index: Int) -> String {
+                guard let avatarUrl = users[index].picture?.medium else {
+                    return ""
+                }
+                return avatarUrl
+            }
         }
     }
 }
