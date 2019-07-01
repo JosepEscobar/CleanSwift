@@ -78,7 +78,7 @@ enum UserList {
             }
         }
     }
-    
+
     enum UserDetail {
         struct Request {
             let user: User

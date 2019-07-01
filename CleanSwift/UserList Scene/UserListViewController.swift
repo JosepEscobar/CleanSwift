@@ -53,13 +53,8 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
 
     // MARK: Routing
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
+    func displayUserDetail(viewModel: UserList.UserDetail.ViewModel) {
+        router?.routeToDetail()
     }
 
     // MARK: View lifecycle
@@ -89,10 +84,7 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         self.viewModel = viewModel
         tableView.reloadData()
     }
-    
-    func displayUserDetail(viewModel: UserList.UserDetail.ViewModel) {
-        router?.routeToDetail()
-    }
+
 }
 
 extension UserListViewController: UITableViewDelegate {

@@ -26,7 +26,7 @@ class UserListPresenter: UserListPresentationLogic {
         let viewModel = UserList.LoadData.ViewModel(users: response.users)
         viewController?.displayInitialData(viewModel: viewModel)
     }
-    
+
     func presentUserDetail(response: UserList.UserDetail.Response) {
         let viewModel = UserList.UserDetail.ViewModel()
         viewController?.displayUserDetail(viewModel: viewModel)

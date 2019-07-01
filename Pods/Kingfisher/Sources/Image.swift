@@ -921,7 +921,7 @@ extension Kingfisher where Base: Image {
         #endif
     }
 
-    func draw(cgImage: CGImage?, to size: CGSize, draw: ()->Void) -> Image {
+    func draw(cgImage: CGImage?, to size: CGSize, draw: () -> Void) -> Image {
         #if os(macOS)
         guard let rep = NSBitmapImageRep(
             bitmapDataPlanes: nil,

@@ -22,7 +22,7 @@ protocol UserListDataStore {
 }
 
 class UserListInteractor: UserListBusinessLogic, UserListDataStore {
-    
+
     var presenter: UserListPresentationLogic?
     var worker: UserListWorker?
     var user: User?
@@ -38,7 +38,7 @@ class UserListInteractor: UserListBusinessLogic, UserListDataStore {
         })
 
     }
-    
+
     func doLoadUserDetail(request: UserList.UserDetail.Request) {
         user = request.user
         let response = UserList.UserDetail.Response()
