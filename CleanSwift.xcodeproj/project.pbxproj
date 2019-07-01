@@ -39,6 +39,7 @@
 		48684C4922CA476E00E17376 /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4822CA476E00E17376 /* NetworkManagerTest.swift */; };
 		48684C4A22CA47BC00E17376 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4622CA46D400E17376 /* UserResponse.swift */; };
 		48684C4B22CA47C000E17376 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4422CA415200E17376 /* Location.swift */; };
+		48684C4E22CA508800E17376 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4D22CA508800E17376 /* UserListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		48684C4422CA415200E17376 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		48684C4622CA46D400E17376 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		48684C4822CA476E00E17376 /* NetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
+		48684C4D22CA508800E17376 /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				48199C7522C8E6F400DAAE0B /* UserList.storyboard */,
+				48684C4D22CA508800E17376 /* UserListTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48684C4E22CA508800E17376 /* UserListTableViewCell.swift in Sources */,
 				48684C1D22C8F0CD00E17376 /* UserListViewController.swift in Sources */,
 				48684C2722C8F0F500E17376 /* UserDetailWorker.swift in Sources */,
 				48684C2B22C8F0F500E17376 /* UserDetailInteractor.swift in Sources */,

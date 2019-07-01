@@ -20,6 +20,8 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     var interactor: UserListBusinessLogic?
     var router: (NSObjectProtocol & UserListRoutingLogic & UserListDataPassing)?
     var usersArray: [User]?
+    
+    @IBOutlet weak var tableView: UITableView!
 
     // MARK: Object lifecycle
 
@@ -64,13 +66,17 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         loadInitialData()
     }
 
     // MARK: Do something
-
-    //@IBOutlet weak var nameTextField: UITextField!
-
+    
+    func configureUI(){
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
     func loadInitialData() {
         let request = UserList.LoadData.Request()
         interactor?.doLoadInitialData(request: request)
@@ -79,5 +85,27 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     func displayInitialData(viewModel: UserList.LoadData.ViewModel) {
         // TODO : Load correct format data
         usersArray = viewModel.users
+        tableView.reloadData()
     }
+}
+
+extension UserListViewController: UITableViewDelegate {
+    
+}
+
+extension UserListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return usersArray?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "UserListCell", for: indexPath) as? UserListTableViewCell {
+            cell.setupCell(name: usersArray?[indexPath.row].name?.first ?? "", avatarUrl: "")
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+    
+    
 }
