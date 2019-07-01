@@ -15,7 +15,7 @@ class UserListWorker {
         guard !isBusy else { return }
         isBusy = true
         NetworkManager().getUsers { users in
-            completionHandler(users)
+            completionHandler(self.checkDuplicates(users: users))
             self.isBusy = false
         }
     }
@@ -32,7 +32,6 @@ class UserListWorker {
     }
     
     private func checkDuplicates(users: [User]) -> [User] {
-        // TODO: Check duplicates
-        return users
+        return users.uniqueElements
     }
 }
