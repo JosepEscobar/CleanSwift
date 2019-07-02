@@ -9,7 +9,7 @@
 import UIKit
 
 protocol UserDetailDisplayLogic: class {
-    func displaySomething(viewModel: UserDetail.Something.ViewModel)
+    func displayInitialData(viewModel: UserDetail.LoadData.ViewModel)
 }
 
 class UserDetailViewController: UIViewController, UserDetailDisplayLogic {
@@ -17,7 +17,6 @@ class UserDetailViewController: UIViewController, UserDetailDisplayLogic {
     var router: (NSObjectProtocol & UserDetailRoutingLogic & UserDetailDataPassing)?
 
     // MARK: Object lifecycle
-
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -29,7 +28,6 @@ class UserDetailViewController: UIViewController, UserDetailDisplayLogic {
     }
 
     // MARK: Setup
-
     private func setup() {
         let viewController = self
         let interactor = UserDetailInteractor()
@@ -44,7 +42,6 @@ class UserDetailViewController: UIViewController, UserDetailDisplayLogic {
     }
 
     // MARK: Routing
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let scene = segue.identifier {
             let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
@@ -55,23 +52,21 @@ class UserDetailViewController: UIViewController, UserDetailDisplayLogic {
     }
 
     // MARK: View lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
-        print(router?.dataStore?.user)
+        doLoadData()
     }
 
     // MARK: Do something
 
     //@IBOutlet weak var nameTextField: UITextField!
 
-    func doSomething() {
-        let request = UserDetail.Something.Request()
-        interactor?.doSomething(request: request)
+    func doLoadData() {
+        let request = UserDetail.LoadData.Request()
+        interactor?.doLoadInitialData(request: request)
     }
 
-    func displaySomething(viewModel: UserDetail.Something.ViewModel) {
+    func displayInitialData(viewModel: UserDetail.LoadData.ViewModel) {
         //nameTextField.text = viewModel.name
     }
 }

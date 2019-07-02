@@ -9,7 +9,7 @@
 import UIKit
 
 protocol UserDetailBusinessLogic {
-    func doSomething(request: UserDetail.Something.Request)
+    func doLoadInitialData(request: UserDetail.LoadData.Request)
 }
 
 protocol UserDetailDataStore {
@@ -20,15 +20,13 @@ class UserDetailInteractor: UserDetailBusinessLogic, UserDetailDataStore {
     var presenter: UserDetailPresentationLogic?
     var worker: UserDetailWorker?
     var user: User?
-    //var name: String = ""
 
     // MARK: Do something
-
-    func doSomething(request: UserDetail.Something.Request) {
-        worker = UserDetailWorker()
-        worker?.doSomeWork()
-
-        let response = UserDetail.Something.Response()
-        presenter?.presentSomething(response: response)
+    func doLoadInitialData(request: UserDetail.LoadData.Request) {
+        guard let user = user else {
+            return
+        }
+        let response = UserDetail.LoadData.Response(user: user)
+        presenter?.presentInitialData(response: response)
     }
 }

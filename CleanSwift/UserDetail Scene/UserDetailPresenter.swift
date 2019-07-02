@@ -9,16 +9,16 @@
 import UIKit
 
 protocol UserDetailPresentationLogic {
-    func presentSomething(response: UserDetail.Something.Response)
+    func presentInitialData(response: UserDetail.LoadData.Response)
 }
 
 class UserDetailPresenter: UserDetailPresentationLogic {
     weak var viewController: UserDetailDisplayLogic?
 
     // MARK: Do something
-
-    func presentSomething(response: UserDetail.Something.Response) {
-        let viewModel = UserDetail.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentInitialData(response: UserDetail.LoadData.Response) {
+        let user = response.user
+        let viewModel = UserDetail.LoadData.ViewModel(user: user)
+        viewController?.displayInitialData(viewModel: viewModel)
     }
 }

@@ -11,12 +11,14 @@ import UIKit
 enum UserDetail {
     // MARK: Use cases
 
-    enum Something {
+    enum LoadData {
         struct Request {
         }
         struct Response {
+            let user: User
         }
         struct ViewModel {
+            let user: User
         }
     }
 }
