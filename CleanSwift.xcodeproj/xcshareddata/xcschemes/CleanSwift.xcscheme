@@ -39,16 +39,6 @@
                ReferencedContainer = "container:CleanSwift.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "48199C8C22C8E6F800DAAE0B"
-               BuildableName = "CleanSwiftUITests.xctest"
-               BlueprintName = "CleanSwiftUITests"
-               ReferencedContainer = "container:CleanSwift.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

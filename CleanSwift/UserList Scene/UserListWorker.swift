@@ -60,7 +60,7 @@ class UserListWorker {
         UserDefaults.standard.set(blacklistArray, forKey: blackListKey)
     }
 
-    private func filterBlackList(users: [User]) -> [User] {
+    func filterBlackList(users: [User]) -> [User] {
         guard let blacklistArray = UserDefaults.standard.array(forKey: blackListKey) as? [String] else {
             return users
         }

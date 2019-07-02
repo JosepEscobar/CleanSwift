@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2EF7C4A15981022938A5282B /* Pods_CleanSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807DC1AC06E32AC5D05083AB /* Pods_CleanSwiftUITests.framework */; };
 		46AB48617788F44DEC4F7214 /* Pods_CleanSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87782BFE574A279149FBAF6E /* Pods_CleanSwiftTests.framework */; };
 		48199C7222C8E6F400DAAE0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48199C7122C8E6F400DAAE0B /* AppDelegate.swift */; };
 		48199C7722C8E6F400DAAE0B /* UserList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48199C7522C8E6F400DAAE0B /* UserList.storyboard */; };
 		48199C7922C8E6F800DAAE0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48199C7822C8E6F800DAAE0B /* Assets.xcassets */; };
 		48199C7C22C8E6F800DAAE0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48199C7A22C8E6F800DAAE0B /* LaunchScreen.storyboard */; };
 		48199C8722C8E6F800DAAE0B /* CleanSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48199C8622C8E6F800DAAE0B /* CleanSwiftTests.swift */; };
-		48199C9222C8E6F800DAAE0B /* CleanSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48199C9122C8E6F800DAAE0B /* CleanSwiftUITests.swift */; };
 		48684C1122C8EBF600E17376 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 48684C1022C8EBF600E17376 /* README */; };
 		48684C1922C8F0CD00E17376 /* UserListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C1322C8F0CD00E17376 /* UserListPresenter.swift */; };
 		48684C1A22C8F0CD00E17376 /* UserListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C1422C8F0CD00E17376 /* UserListWorker.swift */; };
@@ -45,18 +43,14 @@
 		48684C5022CA84BD00E17376 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4F22CA84BD00E17376 /* SequenceExtensions.swift */; };
 		48684C5222CA885500E17376 /* UniqueElementsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C5122CA885500E17376 /* UniqueElementsTest.swift */; };
 		48684C5322CA89B100E17376 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C4F22CA84BD00E17376 /* SequenceExtensions.swift */; };
+		48684C5622CC068200E17376 /* UserListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C1422C8F0CD00E17376 /* UserListWorker.swift */; };
+		48684C5D22CC06C100E17376 /* UserListWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C5922CC06C100E17376 /* UserListWorkerTests.swift */; };
+		48684C6022CC0F2B00E17376 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C5F22CC0F2B00E17376 /* MockResponse.swift */; };
 		4E60DBC0CFACA13911593C74 /* Pods_CleanSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E255BEB8553889B5ACD4A201 /* Pods_CleanSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		48199C8322C8E6F800DAAE0B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 48199C6622C8E6F400DAAE0B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 48199C6D22C8E6F400DAAE0B;
-			remoteInfo = CleanSwift;
-		};
-		48199C8E22C8E6F800DAAE0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 48199C6622C8E6F400DAAE0B /* Project object */;
 			proxyType = 1;
@@ -76,9 +70,6 @@
 		48199C8222C8E6F800DAAE0B /* CleanSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48199C8622C8E6F800DAAE0B /* CleanSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanSwiftTests.swift; sourceTree = "<group>"; };
 		48199C8822C8E6F800DAAE0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		48199C8D22C8E6F800DAAE0B /* CleanSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		48199C9122C8E6F800DAAE0B /* CleanSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanSwiftUITests.swift; sourceTree = "<group>"; };
-		48199C9322C8E6F900DAAE0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48684C1022C8EBF600E17376 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		48684C1322C8F0CD00E17376 /* UserListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListPresenter.swift; sourceTree = "<group>"; };
 		48684C1422C8F0CD00E17376 /* UserListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListWorker.swift; sourceTree = "<group>"; };
@@ -103,6 +94,8 @@
 		48684C4D22CA508800E17376 /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
 		48684C4F22CA84BD00E17376 /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
 		48684C5122CA885500E17376 /* UniqueElementsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueElementsTest.swift; sourceTree = "<group>"; };
+		48684C5922CC06C100E17376 /* UserListWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListWorkerTests.swift; sourceTree = "<group>"; };
+		48684C5F22CC0F2B00E17376 /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
 		6650DC86DE43A45D8111FC4E /* Pods-CleanSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanSwift.debug.xcconfig"; path = "Target Support Files/Pods-CleanSwift/Pods-CleanSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		682DA60B976489F46656B086 /* Pods-CleanSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-CleanSwiftTests/Pods-CleanSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		773CBBBCACE38C264460122B /* Pods-CleanSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-CleanSwiftUITests/Pods-CleanSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,14 +123,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		48199C8A22C8E6F800DAAE0B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2EF7C4A15981022938A5282B /* Pods_CleanSwiftUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -160,7 +145,6 @@
 				48684C1022C8EBF600E17376 /* README */,
 				48199C7022C8E6F400DAAE0B /* CleanSwift */,
 				48199C8522C8E6F800DAAE0B /* CleanSwiftTests */,
-				48199C9022C8E6F800DAAE0B /* CleanSwiftUITests */,
 				48199C6F22C8E6F400DAAE0B /* Products */,
 				2A9DAEEA9876B6FDE33E25F4 /* Pods */,
 				F6A5DC316996F41259F81C0A /* Frameworks */,
@@ -172,7 +156,6 @@
 			children = (
 				48199C6E22C8E6F400DAAE0B /* CleanSwift.app */,
 				48199C8222C8E6F800DAAE0B /* CleanSwiftTests.xctest */,
-				48199C8D22C8E6F800DAAE0B /* CleanSwiftUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,18 +179,11 @@
 				48199C8622C8E6F800DAAE0B /* CleanSwiftTests.swift */,
 				48684C4822CA476E00E17376 /* NetworkManagerTest.swift */,
 				48684C5122CA885500E17376 /* UniqueElementsTest.swift */,
+				48684C5922CC06C100E17376 /* UserListWorkerTests.swift */,
 				48199C8822C8E6F800DAAE0B /* Info.plist */,
+				48684C5F22CC0F2B00E17376 /* MockResponse.swift */,
 			);
 			path = CleanSwiftTests;
-			sourceTree = "<group>";
-		};
-		48199C9022C8E6F800DAAE0B /* CleanSwiftUITests */ = {
-			isa = PBXGroup;
-			children = (
-				48199C9122C8E6F800DAAE0B /* CleanSwiftUITests.swift */,
-				48199C9322C8E6F900DAAE0B /* Info.plist */,
-			);
-			path = CleanSwiftUITests;
 			sourceTree = "<group>";
 		};
 		48684C1222C8F0AC00E17376 /* UserList Scene */ = {
@@ -345,25 +321,6 @@
 			productReference = 48199C8222C8E6F800DAAE0B /* CleanSwiftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		48199C8C22C8E6F800DAAE0B /* CleanSwiftUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 48199C9C22C8E6F900DAAE0B /* Build configuration list for PBXNativeTarget "CleanSwiftUITests" */;
-			buildPhases = (
-				D640DBC44159183F94D4F4D6 /* [CP] Check Pods Manifest.lock */,
-				48199C8922C8E6F800DAAE0B /* Sources */,
-				48199C8A22C8E6F800DAAE0B /* Frameworks */,
-				48199C8B22C8E6F800DAAE0B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				48199C8F22C8E6F800DAAE0B /* PBXTargetDependency */,
-			);
-			name = CleanSwiftUITests;
-			productName = CleanSwiftUITests;
-			productReference = 48199C8D22C8E6F800DAAE0B /* CleanSwiftUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -378,10 +335,6 @@
 						CreatedOnToolsVersion = 10.1;
 					};
 					48199C8122C8E6F800DAAE0B = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 48199C6D22C8E6F400DAAE0B;
-					};
-					48199C8C22C8E6F800DAAE0B = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 48199C6D22C8E6F400DAAE0B;
 					};
@@ -402,7 +355,6 @@
 			targets = (
 				48199C6D22C8E6F400DAAE0B /* CleanSwift */,
 				48199C8122C8E6F800DAAE0B /* CleanSwiftTests */,
-				48199C8C22C8E6F800DAAE0B /* CleanSwiftUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -427,38 +379,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		48199C8B22C8E6F800DAAE0B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D640DBC44159183F94D4F4D6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CleanSwiftUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E307B17CD14A25B345F5403B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -560,23 +483,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48684C5D22CC06C100E17376 /* UserListWorkerTests.swift in Sources */,
 				48684C4022CA2C7E00E17376 /* User.swift in Sources */,
 				48684C5322CA89B100E17376 /* SequenceExtensions.swift in Sources */,
 				48684C3F22CA2BCD00E17376 /* NetworkManager.swift in Sources */,
 				48684C4122CA2C8200E17376 /* EndpointConstants.swift in Sources */,
 				48684C4922CA476E00E17376 /* NetworkManagerTest.swift in Sources */,
+				48684C6022CC0F2B00E17376 /* MockResponse.swift in Sources */,
 				48199C8722C8E6F800DAAE0B /* CleanSwiftTests.swift in Sources */,
+				48684C5622CC068200E17376 /* UserListWorker.swift in Sources */,
 				48684C4A22CA47BC00E17376 /* UserResponse.swift in Sources */,
 				48684C4B22CA47C000E17376 /* Location.swift in Sources */,
 				48684C5222CA885500E17376 /* UniqueElementsTest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		48199C8922C8E6F800DAAE0B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				48199C9222C8E6F800DAAE0B /* CleanSwiftUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,11 +505,6 @@
 			isa = PBXTargetDependency;
 			target = 48199C6D22C8E6F400DAAE0B /* CleanSwift */;
 			targetProxy = 48199C8322C8E6F800DAAE0B /* PBXContainerItemProxy */;
-		};
-		48199C8F22C8E6F800DAAE0B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 48199C6D22C8E6F400DAAE0B /* CleanSwift */;
-			targetProxy = 48199C8E22C8E6F800DAAE0B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -815,46 +728,6 @@
 			};
 			name = Release;
 		};
-		48199C9D22C8E6F900DAAE0B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A15B2898DAA7EB840B1563CF /* Pods-CleanSwiftUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CleanSwiftUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.josepescobar.CleanSwiftUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CleanSwift;
-			};
-			name = Debug;
-		};
-		48199C9E22C8E6F900DAAE0B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 773CBBBCACE38C264460122B /* Pods-CleanSwiftUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CleanSwiftUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.josepescobar.CleanSwiftUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CleanSwift;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -881,15 +754,6 @@
 			buildConfigurations = (
 				48199C9A22C8E6F900DAAE0B /* Debug */,
 				48199C9B22C8E6F900DAAE0B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		48199C9C22C8E6F900DAAE0B /* Build configuration list for PBXNativeTarget "CleanSwiftUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				48199C9D22C8E6F900DAAE0B /* Debug */,
-				48199C9E22C8E6F900DAAE0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
