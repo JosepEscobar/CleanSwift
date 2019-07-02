@@ -68,14 +68,20 @@ class UserListInteractor: UserListBusinessLogic, UserListDataStore {
     }
 
     func doDeleteUser(request: UserList.DeleteUser.Request) {
-        var usersArray = request.users
+        var firstUsersArray = request.firstUsersArray
+        var secondUsersArray = request.secondUsersArray
         let indexPath = request.indexPath
         worker = UserListWorker()
 
-        worker?.addUserToBlackList(user: usersArray[indexPath.row])
-        usersArray.remove(at: request.indexPath.row)
+        worker?.addUserToBlackList(user: firstUsersArray[indexPath.row])
+        if let users = worker?.filterBlackList(users: firstUsersArray) {
+            firstUsersArray = users
+        }
+        if let users = worker?.filterBlackList(users: secondUsersArray) {
+            secondUsersArray = users
+        }
 
-        let response = UserList.DeleteUser.Response(indexPath: indexPath, users: usersArray)
+        let response = UserList.DeleteUser.Response(indexPath: indexPath, firstUsersArray: firstUsersArray, secondUsersArray: secondUsersArray)
         presenter?.presentDeletedUserFromArray(response: response)
     }
 

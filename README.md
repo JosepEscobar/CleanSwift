@@ -1,5 +1,6 @@
 # 🐍 Clean Swift project
-### 🛠 On this project i used the following tech stack
+
+### 🛠 On this project i used the following tech stack
 - Clean Swift (a.k.a VIP) architecture
 - Coddables
 - Unit testing (XCTest)

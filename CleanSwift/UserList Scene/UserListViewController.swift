@@ -13,7 +13,7 @@ protocol UserListDisplayLogic: class {
     func displayUserDetail(viewModel: UserList.UserDetail.ViewModel)
     func displaySearchResults(viewModel: UserList.SearchData.ViewModel)
     func displaySearchResultsCanceled(viewModel: UserList.SearchCancel.ViewModel)
-    func displayDeleteRow(indexPath: IndexPath, users: [User])
+    func displayDeleteRow(indexPath: IndexPath, firstUsersArray: [User], secondUsersArray: [User])
 }
 
 class UserListViewController: UIViewController, UserListDisplayLogic {
@@ -77,9 +77,9 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         searchController.searchBar.enablesReturnKeyAutomatically = true
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
-        title = "Users"
+        title = "User List"
     }
 
     func loadInitialData() {
@@ -100,11 +100,16 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
 
     func displaySearchResultsCanceled(viewModel: UserList.SearchCancel.ViewModel) {
         isSearching = false
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 
-    func displayDeleteRow(indexPath: IndexPath, users: [User]) {
-        self.viewModel.users = users
+    func displayDeleteRow(indexPath: IndexPath, firstUsersArray: [User], secondUsersArray: [User]) {
+        if isSearching {
+            resultsViewModel.users = firstUsersArray
+            viewModel.users = secondUsersArray
+        } else {
+            viewModel.users = firstUsersArray
+        }
         self.tableView.deleteRows(at: [indexPath], with: .fade)
     }
 }
@@ -125,7 +130,12 @@ extension UserListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let request = UserList.DeleteUser.Request(indexPath: indexPath, users: viewModel.users)
+            var request: UserList.DeleteUser.Request
+            if isSearching {
+                request = UserList.DeleteUser.Request(indexPath: indexPath, firstUsersArray: resultsViewModel.users, secondUsersArray: viewModel.users)
+            } else {
+                request = UserList.DeleteUser.Request(indexPath: indexPath, firstUsersArray: viewModel.users, secondUsersArray: resultsViewModel.users)
+            }
             interactor?.doDeleteUser(request: request)
         }
     }
