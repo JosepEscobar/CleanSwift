@@ -28,7 +28,6 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     let searchController = UISearchController(searchResultsController: nil)
 
     // MARK: Object lifecycle
-
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -40,7 +39,6 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     }
 
     // MARK: Setup
-
     private func setup() {
         let viewController = self
         let interactor = UserListInteractor()
@@ -55,13 +53,11 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     }
 
     // MARK: Routing
-
     func displayUserDetail(viewModel: UserList.UserDetail.ViewModel) {
         router?.routeToDetail()
     }
 
     // MARK: View lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -69,7 +65,6 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     }
 
     // MARK: Do something
-
     func configureUI() {
         tableView.delegate = self
         tableView.dataSource = self

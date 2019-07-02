@@ -1,10 +1,10 @@
 # Clean Swift project
 ### On this project i used the following tech stack
-- Clean Swift (a.k.a VIP) architecture pattern
+- Clean Swift (a.k.a VIP) architecture
 - Coddables
-- Generic types
 - Unit testing (XCTest)
 - UI Testing (XCUITest)
 
 ### Project information
-- Unit test coverage: 0%
+- Unit test coverage: 52% (Fake by UITest...)
+- Use Kinfgisher framework to image caching

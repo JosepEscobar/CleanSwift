@@ -9,8 +9,8 @@
 import UIKit
 
 enum UserList {
-    // MARK: Use cases
 
+    // MARK: Use cases
     enum LoadData {
         struct Request {
             let users: [User]?
@@ -173,7 +173,5 @@ enum UserList {
         }
         struct ViewModel {
         }
-
     }
-
 }
