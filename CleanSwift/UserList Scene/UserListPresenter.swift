@@ -37,8 +37,7 @@ class UserListPresenter: UserListPresentationLogic {
     }
 
     func presentSearchCancel(response: UserList.SearchCancel.Response) {
-        let viewModel = UserList.SearchCancel.ViewModel()
-        viewController?.displaySearchResultsCanceled(viewModel: viewModel)
+        viewController?.displaySearchResultsCanceled()
     }
 
     func presentDeletedUserFromArray(response: UserList.DeleteUser.Response) {
