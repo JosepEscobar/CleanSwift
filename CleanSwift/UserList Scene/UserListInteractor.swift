@@ -28,7 +28,6 @@ class UserListInteractor: UserListBusinessLogic, UserListDataStore {
     var user: User?
 
     // MARK: Do something
-
     func doLoadInitialData(request: UserList.LoadData.Request) {
         worker = UserListWorker()
         worker?.fetchUsers(completionHandler: { users in

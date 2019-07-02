@@ -30,13 +30,11 @@ class UserListRouter: NSObject, UserListRoutingLogic, UserListDataPassing {
     }
 
     // MARK: Navigation
-
     func navigateToDetail(source: UserListViewController, destination: UserDetailViewController) {
         source.show(destination, sender: nil)
     }
 
     // MARK: Passing data
-
     func passDataToDetail(source: UserListDataStore, destination: inout UserDetailDataStore) {
         destination.user = source.user
     }

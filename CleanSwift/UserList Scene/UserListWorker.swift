@@ -10,12 +10,13 @@ import UIKit
 
 class UserListWorker {
     private var isBusy = false
+    let blackListKey = "blacklist"
 
     func fetchUsers(completionHandler: @escaping ([User]) -> Void) {
         guard !isBusy else { return }
         isBusy = true
         NetworkManager().getUsers { users in
-            completionHandler(users.uniqueElements)
+            completionHandler(self.filterBlackList(users: users.uniqueElements))
             self.isBusy = false
         }
     }
@@ -26,7 +27,7 @@ class UserListWorker {
         NetworkManager().getUsers { users in
             var mergedArray = oldUsersArray
             mergedArray.append(contentsOf: users)
-            completionHandler(mergedArray.uniqueElements)
+            completionHandler(self.filterBlackList(users: mergedArray.uniqueElements))
             self.isBusy = false
         }
     }
@@ -45,7 +46,32 @@ class UserListWorker {
     }
 
     func addUserToBlackList(user: User) {
-        // TODO persist data
+        guard let uuid = user.login?.uuid else {
+            return
+        }
+
+        var blacklistArray = UserDefaults.standard.array(forKey: blackListKey)
+        if let _ = blacklistArray {
+            blacklistArray?.append(uuid)
+        } else {
+            blacklistArray = [uuid]
+        }
+
+        UserDefaults.standard.set(blacklistArray, forKey: blackListKey)
+    }
+
+    private func filterBlackList(users: [User]) -> [User] {
+        guard let blacklistArray = UserDefaults.standard.array(forKey: blackListKey) as? [String] else {
+            return users
+        }
+        let filteredUsers = users.filter({(user: User) -> Bool in
+            guard let uuid = user.login?.uuid else {
+                return false
+            }
+            return !blacklistArray.contains(uuid)
+        })
+
+        return filteredUsers
     }
 
 }
