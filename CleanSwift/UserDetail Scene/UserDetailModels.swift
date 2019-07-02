@@ -20,10 +20,18 @@ enum UserDetail {
         struct ViewModel {
             let user: User
 
+            
+            /// Used to return formated Gender
+            ///
+            /// - Returns: returns formated gender
             func getGender() -> String {
                 return user.gender?.capitalized ?? "No gender"
             }
 
+            
+            /// Used to get formated Location
+            ///
+            /// - Returns: returns formated location
             func getLocation() -> String {
                 var location: String = ""
 
@@ -52,6 +60,10 @@ enum UserDetail {
                 return location
             }
 
+            
+            /// Used to returns formated registered data
+            ///
+            /// - Returns: returns formated registered data
             func getRegisteredDate() -> String {
                 guard let registeredDate = user.registered?.date else {
                     return "No registered date"
