@@ -1,0 +1,180 @@
+//
+//  UserListModels.swift
+//  CleanSwift
+//
+//  Created by Josep Escobar on 30/06/2019.
+//  Copyright (c) 2019 Josep Escobar. All rights reserved.
+//
+
+import UIKit
+
+enum UserList {
+
+    // MARK: Use cases
+    enum LoadData {
+        struct Request {
+            let users: [User]?
+        }
+        struct Response {
+            let users: [User]
+        }
+        struct ViewModel {
+
+            var users: [User]
+
+            /// Returns number of users can be returned
+            ///
+            /// - Returns: Number of users
+            func getNumberOfUsers() -> Int {
+                return users.count
+            }
+
+            /// Format User name with First name and Last name
+            ///
+            /// - Parameter index: Index from User array
+            /// - Returns: returns formated value, never returns nil
+            func getfullUserName(index: Int) -> String {
+                guard let firstName = users[index].name?.first,
+                      let lastName = users[index].name?.last else {
+                        return "No name"
+                }
+                return "\(firstName) \(lastName)".capitalized
+            }
+
+            /// Get avatar URL
+            ///
+            /// - Parameter index: Index from User array
+            /// - Returns: returns URL in String format, never returns nil
+            func getAvatarImage(index: Int) -> String {
+                guard let avatarUrl = users[index].picture?.medium else {
+                    return ""
+                }
+                return avatarUrl
+            }
+
+            /// Get user Email
+            ///
+            /// - Parameter index: Index from User array
+            /// - Returns: returns email value, never returns nil
+            func getEmail(index: Int) -> String {
+                guard let email = users[index].email else {
+                    return "No email"
+                }
+                return email
+            }
+
+            /// Get user Phone
+            ///
+            /// - Parameter index: Index from User array
+            /// - Returns: returns phone value, never returns nil
+            func getPhone(index: Int) -> String {
+                guard let phone = users[index].phone else {
+                    return "No phone"
+                }
+                return phone
+            }
+        }
+    }
+
+    enum SearchData {
+        struct Request {
+            let searchWord: String
+            let users: [User]
+        }
+        struct Response {
+            let users: [User]
+        }
+        struct ViewModel {
+
+            var users: [User]
+
+            /// Returns number of users can be returned
+            ///
+            /// - Returns: Number of users
+            func getNumberOfUsers() -> Int {
+                return users.count
+            }
+
+            /// Format User name with First name and Last name
+            ///
+            /// - Parameter index: Index from User array
+            /// - Returns: returns formated value, never returns nil
+            func getfullUserName(index: Int) -> String {
+                guard let firstName = users[index].name?.first,
+                    let lastName = users[index].name?.last else {
+                        return "No name"
+                }
+                return "\(firstName) \(lastName)".capitalized
+            }
+
+            /// Get avatar URL
+            ///
+            /// - Parameter index: Index from User array
+            /// - Returns: returns URL in String format, never returns nil
+            func getAvatarImage(index: Int) -> String {
+                guard let avatarUrl = users[index].picture?.medium else {
+                    return ""
+                }
+                return avatarUrl
+            }
+
+            /// Get user Email
+            ///
+            /// - Parameter index: Index from User array
+            /// - Returns: returns email value, never returns nil
+            func getEmail(index: Int) -> String {
+                guard let email = users[index].email else {
+                    return "No email"
+                }
+                return email
+            }
+
+            /// Get user Phone
+            ///
+            /// - Parameter index: Index from User array
+            /// - Returns: returns phone value, never returns nil
+            func getPhone(index: Int) -> String {
+                guard let phone = users[index].phone else {
+                    return "No phone"
+                }
+                return phone
+            }
+        }
+    }
+
+    enum SearchCancel {
+        struct Request {
+        }
+        struct Response {
+        }
+        struct ViewModel {
+        }
+    }
+
+    enum DeleteUser {
+        struct Request {
+            let indexPath: IndexPath
+            let firstUsersArray: [User]
+            let secondUsersArray: [User]
+        }
+        struct Response {
+            let indexPath: IndexPath
+            let firstUsersArray: [User]
+            let secondUsersArray: [User]
+        }
+        struct ViewModel {
+            let firstUsersArray: [User]
+            let secondUsersArray: [User]
+        }
+    }
+
+    enum UserDetail {
+        struct Request {
+            let user: User
+        }
+        struct Response {
+        }
+        struct ViewModel {
+        }
+    }
+}
