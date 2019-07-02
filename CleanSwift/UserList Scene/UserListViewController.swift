@@ -79,7 +79,7 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         definesPresentationContext = true
-        title = NSLocalizedString("title_list_key", comment: "") 
+        title = "User List"
     }
 
     func loadInitialData() {
