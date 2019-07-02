@@ -42,7 +42,7 @@ class UserListPresenter: UserListPresentationLogic {
     }
 
     func presentDeletedUserFromArray(response: UserList.DeleteUser.Response) {
-        viewController?.displayDeleteRow(indexPath: response.indexPath, users: response.users)
+        viewController?.displayDeleteRow(indexPath: response.indexPath, firstUsersArray: response.firstUsersArray, secondUsersArray: response.secondUsersArray)
     }
 
 }

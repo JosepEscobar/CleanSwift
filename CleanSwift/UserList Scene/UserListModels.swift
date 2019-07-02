@@ -86,7 +86,7 @@ enum UserList {
         }
         struct ViewModel {
 
-            let users: [User]
+            var users: [User]
 
             /// Returns number of users can be returned
             ///
@@ -154,14 +154,17 @@ enum UserList {
     enum DeleteUser {
         struct Request {
             let indexPath: IndexPath
-            let users: [User]
+            let firstUsersArray: [User]
+            let secondUsersArray: [User]
         }
         struct Response {
             let indexPath: IndexPath
-            let users: [User]
+            let firstUsersArray: [User]
+            let secondUsersArray: [User]
         }
         struct ViewModel {
-            let users: [User]
+            let firstUsersArray: [User]
+            let secondUsersArray: [User]
         }
     }
 
