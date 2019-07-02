@@ -12,7 +12,7 @@ protocol UserListDisplayLogic: class {
     func displayInitialData(viewModel: UserList.LoadData.ViewModel)
     func displayUserDetail(viewModel: UserList.UserDetail.ViewModel)
     func displaySearchResults(viewModel: UserList.SearchData.ViewModel)
-    func displaySearchResultsCanceled(viewModel: UserList.SearchCancel.ViewModel)
+    func displaySearchResultsCanceled()
     func displayDeleteRow(indexPath: IndexPath, firstUsersArray: [User], secondUsersArray: [User])
 }
 
@@ -98,7 +98,7 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         tableView.reloadData()
     }
 
-    func displaySearchResultsCanceled(viewModel: UserList.SearchCancel.ViewModel) {
+    func displaySearchResultsCanceled() {
         isSearching = false
         tableView.reloadData()
     }
@@ -119,6 +119,7 @@ extension UserListViewController: UITableViewDelegate {
         let user = viewModel.users[indexPath.row]
         let request = UserList.UserDetail.Request(user: user)
         interactor?.doLoadUserDetail(request: request)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
