@@ -13,7 +13,7 @@
 		48199C7922C8E6F800DAAE0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48199C7822C8E6F800DAAE0B /* Assets.xcassets */; };
 		48199C7C22C8E6F800DAAE0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48199C7A22C8E6F800DAAE0B /* LaunchScreen.storyboard */; };
 		48199C8722C8E6F800DAAE0B /* CleanSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48199C8622C8E6F800DAAE0B /* CleanSwiftTests.swift */; };
-		48684C1122C8EBF600E17376 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 48684C1022C8EBF600E17376 /* README */; };
+		48684C1122C8EBF600E17376 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 48684C1022C8EBF600E17376 /* README.md */; };
 		48684C1922C8F0CD00E17376 /* UserListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C1322C8F0CD00E17376 /* UserListPresenter.swift */; };
 		48684C1A22C8F0CD00E17376 /* UserListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C1422C8F0CD00E17376 /* UserListWorker.swift */; };
 		48684C1B22C8F0CD00E17376 /* UserListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48684C1522C8F0CD00E17376 /* UserListRouter.swift */; };
@@ -70,7 +70,7 @@
 		48199C8222C8E6F800DAAE0B /* CleanSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48199C8622C8E6F800DAAE0B /* CleanSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanSwiftTests.swift; sourceTree = "<group>"; };
 		48199C8822C8E6F800DAAE0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		48684C1022C8EBF600E17376 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		48684C1022C8EBF600E17376 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		48684C1322C8F0CD00E17376 /* UserListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListPresenter.swift; sourceTree = "<group>"; };
 		48684C1422C8F0CD00E17376 /* UserListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListWorker.swift; sourceTree = "<group>"; };
 		48684C1522C8F0CD00E17376 /* UserListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRouter.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		48199C6522C8E6F400DAAE0B = {
 			isa = PBXGroup;
 			children = (
-				48684C1022C8EBF600E17376 /* README */,
+				48684C1022C8EBF600E17376 /* README.md */,
 				48199C7022C8E6F400DAAE0B /* CleanSwift */,
 				48199C8522C8E6F800DAAE0B /* CleanSwiftTests */,
 				48199C6F22C8E6F400DAAE0B /* Products */,
@@ -364,7 +364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48684C1122C8EBF600E17376 /* README in Resources */,
+				48684C1122C8EBF600E17376 /* README.md in Resources */,
 				48199C7C22C8E6F800DAAE0B /* LaunchScreen.storyboard in Resources */,
 				48684C3422CA16CD00E17376 /* UserDetail.storyboard in Resources */,
 				48199C7922C8E6F800DAAE0B /* Assets.xcassets in Resources */,
