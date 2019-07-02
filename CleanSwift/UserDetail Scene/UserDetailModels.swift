@@ -45,6 +45,10 @@ enum UserDetail {
                     location = location + state
                 }
                 
+                if !location.isEmpty {
+                    location = "No Location"
+                }
+                
                 return location
             }
             
