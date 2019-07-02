@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 protocol UserListDisplayLogic: class {
     func displayInitialData(viewModel: UserList.LoadData.ViewModel)
@@ -83,6 +84,7 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     }
 
     func loadInitialData() {
+        SVProgressHUD.show()
         let request = UserList.LoadData.Request(users: nil)
         interactor?.doLoadInitialData(request: request)
     }
@@ -90,6 +92,7 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     func displayInitialData(viewModel: UserList.LoadData.ViewModel) {
         self.viewModel = viewModel
         tableView.reloadData()
+        SVProgressHUD.dismiss()
     }
 
     func displaySearchResults(viewModel: UserList.SearchData.ViewModel) {

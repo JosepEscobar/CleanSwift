@@ -7,13 +7,9 @@ target 'CleanSwift' do
 
   # Pods for CleanSwift
   pod 'Kingfisher', '~> 4.0'
+  pod 'SVProgressHUD'
 
   target 'CleanSwiftTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'CleanSwiftUITests' do
     inherit! :search_paths
     # Pods for testing
   end
