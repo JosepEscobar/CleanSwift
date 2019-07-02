@@ -12,6 +12,8 @@ protocol UserListBusinessLogic {
     func doLoadInitialData(request: UserList.LoadData.Request)
     func doLoadMoreData(request: UserList.LoadData.Request)
     func doLoadUserDetail(request: UserList.UserDetail.Request)
+    func doLoadResults(request: UserList.SearchData.Request)
+    func doCancelSearch(request: UserList.SearchCancel.Request)
 }
 
 protocol UserListDataStore {
@@ -33,7 +35,7 @@ class UserListInteractor: UserListBusinessLogic, UserListDataStore {
             self.presenter?.presentData(response: response)
         })
     }
-    
+
     func doLoadMoreData(request: UserList.LoadData.Request) {
         if let usersArray = request.users {
             worker = UserListWorker()
@@ -50,4 +52,18 @@ class UserListInteractor: UserListBusinessLogic, UserListDataStore {
         presenter?.presentUserDetail(response: response)
     }
 
+    func doLoadResults(request: UserList.SearchData.Request) {
+        let searchText = request.searchWord
+        let users = request.users
+        worker = UserListWorker()
+        worker?.filterArrayBySearchText(searchText: searchText, usersArray: users, completionHandler: { users in
+            let response = UserList.SearchData.Response(users: users)
+            self.presenter?.presentSearchResults(response: response)
+        })
+    }
+
+    func doCancelSearch(request: UserList.SearchCancel.Request) {
+        let response = UserList.SearchCancel.Response()
+        presenter?.presentSearchCancel(response: response)
+    }
 }

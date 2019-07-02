@@ -10,18 +10,18 @@ import XCTest
 
 class IntegerElement: Equatable {
     var number: Int
-    
+
     init(number: Int) {
         self.number = number
     }
-    
+
     static func == (lhs: IntegerElement, rhs: IntegerElement) -> Bool {
         return lhs.number == rhs.number
     }
 }
 
 class UniqueElementsTest: XCTestCase {
-    
+
     var array: [IntegerElement] = []
 
     override func setUp() {
@@ -33,7 +33,7 @@ class UniqueElementsTest: XCTestCase {
         let element5 = IntegerElement(number: 6)
         let element6 = IntegerElement(number: 1)
         let element7 = IntegerElement(number: 2)
-        
+
         array.append(element1)
         array.append(element2)
         array.append(element3)
@@ -54,5 +54,3 @@ class UniqueElementsTest: XCTestCase {
     }
 
 }
-
-

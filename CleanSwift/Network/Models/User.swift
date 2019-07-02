@@ -9,7 +9,7 @@
 import Foundation
 
 struct User: Codable, Equatable {
-    
+
     let gender: String?
     let name: Name?
     let location: Location?
@@ -59,7 +59,7 @@ struct User: Codable, Equatable {
         let medium: String?
         let thumbnail: String?
     }
-    
+
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.login?.uuid == rhs.login?.uuid
     }

@@ -11,14 +11,20 @@ import UIKit
 protocol UserListDisplayLogic: class {
     func displayInitialData(viewModel: UserList.LoadData.ViewModel)
     func displayUserDetail(viewModel: UserList.UserDetail.ViewModel)
+    func displaySearchResults(viewModel: UserList.SearchData.ViewModel)
+    func displaySearchResultsCanceled(viewModel: UserList.SearchCancel.ViewModel)
 }
 
 class UserListViewController: UIViewController, UserListDisplayLogic {
+
     var interactor: UserListBusinessLogic?
     var router: (NSObjectProtocol & UserListRoutingLogic & UserListDataPassing)?
     var viewModel = UserList.LoadData.ViewModel(users: [])
+    var resultsViewModel = UserList.SearchData.ViewModel(users: [])
+    var isSearching = false
 
     @IBOutlet weak var tableView: UITableView!
+    let searchController = UISearchController(searchResultsController: nil)
 
     // MARK: Object lifecycle
 
@@ -68,6 +74,15 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         tableView.dataSource = self
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.keyboardDismissMode = .onDrag
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Users"
+        searchController.searchBar.enablesReturnKeyAutomatically = true
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        definesPresentationContext = true
         title = "Users"
     }
 
@@ -81,6 +96,16 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         tableView.reloadData()
     }
 
+    func displaySearchResults(viewModel: UserList.SearchData.ViewModel) {
+        self.resultsViewModel = viewModel
+        isSearching = true
+        tableView.reloadData()
+    }
+
+    func displaySearchResultsCanceled(viewModel: UserList.SearchCancel.ViewModel) {
+        isSearching = false
+        self.tableView.reloadData()
+    }
 }
 
 extension UserListViewController: UITableViewDelegate {
@@ -89,7 +114,7 @@ extension UserListViewController: UITableViewDelegate {
         let request = UserList.UserDetail.Request(user: user)
         interactor?.doLoadUserDetail(request: request)
     }
-    
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row + 5 == self.viewModel.getNumberOfUsers() {
             let request = UserList.LoadData.Request(users: self.viewModel.users)
@@ -100,19 +125,42 @@ extension UserListViewController: UITableViewDelegate {
 
 extension UserListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getNumberOfUsers()
+        return isSearching ? resultsViewModel.getNumberOfUsers() : viewModel.getNumberOfUsers()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "UserListCell", for: indexPath) as? UserListTableViewCell {
-            cell.setupCell(name: viewModel.getfullUserName(index: indexPath.row),
-                           avatarUrl: viewModel.getAvatarImage(index: indexPath.row),
-                           email: viewModel.getEmail(index: indexPath.row),
-                           phone: viewModel.getPhone(index: indexPath.row))
+            if isSearching {
+                cell.setupCell(name: resultsViewModel.getfullUserName(index: indexPath.row),
+                               avatarUrl: resultsViewModel.getAvatarImage(index: indexPath.row),
+                               email: resultsViewModel.getEmail(index: indexPath.row),
+                               phone: resultsViewModel.getPhone(index: indexPath.row))
+            } else {
+                cell.setupCell(name: viewModel.getfullUserName(index: indexPath.row),
+                               avatarUrl: viewModel.getAvatarImage(index: indexPath.row),
+                               email: viewModel.getEmail(index: indexPath.row),
+                               phone: viewModel.getPhone(index: indexPath.row))
+            }
             return cell
         } else {
             return UITableViewCell()
         }
     }
 
+}
+
+extension UserListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchWord = searchController.searchBar.text, !searchWord.isEmpty {
+            let request = UserList.SearchData.Request(searchWord: searchWord, users: viewModel.users)
+            interactor?.doLoadResults(request: request)
+        }
+    }
+}
+
+extension UserListViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        let request = UserList.SearchCancel.Request()
+        interactor?.doCancelSearch(request: request)
+    }
 }
