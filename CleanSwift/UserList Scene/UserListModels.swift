@@ -20,7 +20,7 @@ enum UserList {
         }
         struct ViewModel {
 
-            let users: [User]
+            var users: [User]
 
             /// Returns number of users can be returned
             ///
@@ -148,6 +148,20 @@ enum UserList {
         struct Response {
         }
         struct ViewModel {
+        }
+    }
+
+    enum DeleteUser {
+        struct Request {
+            let indexPath: IndexPath
+            let users: [User]
+        }
+        struct Response {
+            let indexPath: IndexPath
+            let users: [User]
+        }
+        struct ViewModel {
+            let users: [User]
         }
     }
 

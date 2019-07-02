@@ -14,6 +14,7 @@ protocol UserListBusinessLogic {
     func doLoadUserDetail(request: UserList.UserDetail.Request)
     func doLoadResults(request: UserList.SearchData.Request)
     func doCancelSearch(request: UserList.SearchCancel.Request)
+    func doDeleteUser(request: UserList.DeleteUser.Request)
 }
 
 protocol UserListDataStore {
@@ -66,4 +67,17 @@ class UserListInteractor: UserListBusinessLogic, UserListDataStore {
         let response = UserList.SearchCancel.Response()
         presenter?.presentSearchCancel(response: response)
     }
+
+    func doDeleteUser(request: UserList.DeleteUser.Request) {
+        var usersArray = request.users
+        let indexPath = request.indexPath
+        worker = UserListWorker()
+
+        worker?.addUserToBlackList(user: usersArray[indexPath.row])
+        usersArray.remove(at: request.indexPath.row)
+
+        let response = UserList.DeleteUser.Response(indexPath: indexPath, users: usersArray)
+        presenter?.presentDeletedUserFromArray(response: response)
+    }
+
 }

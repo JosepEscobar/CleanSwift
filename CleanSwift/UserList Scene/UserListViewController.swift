@@ -13,6 +13,7 @@ protocol UserListDisplayLogic: class {
     func displayUserDetail(viewModel: UserList.UserDetail.ViewModel)
     func displaySearchResults(viewModel: UserList.SearchData.ViewModel)
     func displaySearchResultsCanceled(viewModel: UserList.SearchCancel.ViewModel)
+    func displayDeleteRow(indexPath: IndexPath, users: [User])
 }
 
 class UserListViewController: UIViewController, UserListDisplayLogic {
@@ -106,6 +107,11 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         isSearching = false
         self.tableView.reloadData()
     }
+
+    func displayDeleteRow(indexPath: IndexPath, users: [User]) {
+        self.viewModel.users = users
+        self.tableView.deleteRows(at: [indexPath], with: .fade)
+    }
 }
 
 extension UserListViewController: UITableViewDelegate {
@@ -119,6 +125,13 @@ extension UserListViewController: UITableViewDelegate {
         if indexPath.row + 5 == self.viewModel.getNumberOfUsers() {
             let request = UserList.LoadData.Request(users: self.viewModel.users)
             interactor?.doLoadMoreData(request: request)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let request = UserList.DeleteUser.Request(indexPath: indexPath, users: viewModel.users)
+            interactor?.doDeleteUser(request: request)
         }
     }
 }

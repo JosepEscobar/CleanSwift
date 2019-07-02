@@ -44,4 +44,8 @@ class UserListWorker {
         completionHandler(filteredUsers)
     }
 
+    func addUserToBlackList(user: User) {
+        // TODO persist data
+    }
+
 }

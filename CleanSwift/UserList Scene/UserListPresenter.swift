@@ -13,6 +13,7 @@ protocol UserListPresentationLogic {
     func presentUserDetail(response: UserList.UserDetail.Response)
     func presentSearchResults(response: UserList.SearchData.Response)
     func presentSearchCancel(response: UserList.SearchCancel.Response)
+    func presentDeletedUserFromArray(response: UserList.DeleteUser.Response)
 }
 
 class UserListPresenter: UserListPresentationLogic {
@@ -38,6 +39,10 @@ class UserListPresenter: UserListPresentationLogic {
     func presentSearchCancel(response: UserList.SearchCancel.Response) {
         let viewModel = UserList.SearchCancel.ViewModel()
         viewController?.displaySearchResultsCanceled(viewModel: viewModel)
+    }
+
+    func presentDeletedUserFromArray(response: UserList.DeleteUser.Response) {
+        viewController?.displayDeleteRow(indexPath: response.indexPath, users: response.users)
     }
 
 }
