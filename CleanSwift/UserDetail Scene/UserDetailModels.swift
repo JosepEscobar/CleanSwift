@@ -21,7 +21,7 @@ enum UserDetail {
             let user: User
             
             func getGender() -> String {
-                return user.gender ?? "No gender"
+                return user.gender?.capitalized ?? "No gender"
             }
             
             func getLocation() -> String {
@@ -45,6 +45,10 @@ enum UserDetail {
                     location = location + state
                 }
                 
+                if location.isEmpty {
+                    location = "No Location"
+                }
+                
                 return location
             }
             
@@ -52,7 +56,17 @@ enum UserDetail {
                 guard let registeredDate = user.registered?.date else {
                     return "No registered date"
                 }
-                return registeredDate
+                let dateFormatterGet = DateFormatter()
+                dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                
+                let dateFormatterPrint = DateFormatter()
+                dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+                
+                if let date = dateFormatterGet.date(from: registeredDate) {
+                    return dateFormatterPrint.string(from: date)
+                } else {
+                    return registeredDate
+                }
             }
             
             /// Format User name with First name and Last name
