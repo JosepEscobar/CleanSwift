@@ -77,7 +77,7 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         searchController.searchBar.enablesReturnKeyAutomatically = true
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
         title = "User List"
     }
