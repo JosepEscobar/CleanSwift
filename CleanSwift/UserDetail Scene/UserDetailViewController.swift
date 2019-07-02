@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol UserDetailDisplayLogic: class {
     func displayInitialData(viewModel: UserDetail.LoadData.ViewModel)
@@ -15,6 +16,13 @@ protocol UserDetailDisplayLogic: class {
 class UserDetailViewController: UIViewController, UserDetailDisplayLogic {
     var interactor: UserDetailBusinessLogic?
     var router: (NSObjectProtocol & UserDetailRoutingLogic & UserDetailDataPassing)?
+    
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var registeredDateLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
 
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -58,15 +66,28 @@ class UserDetailViewController: UIViewController, UserDetailDisplayLogic {
     }
 
     // MARK: Do something
-
-    //@IBOutlet weak var nameTextField: UITextField!
-
     func doLoadData() {
         let request = UserDetail.LoadData.Request()
         interactor?.doLoadInitialData(request: request)
     }
 
     func displayInitialData(viewModel: UserDetail.LoadData.ViewModel) {
-        //nameTextField.text = viewModel.name
+        if let url = URL(string: viewModel.getAvatarImage()) {
+            userImageView.kf.setImage(with: url)
+            setCircleAvatar()
+        }
+        nameLabel.text = viewModel.getfullUserName()
+        emailLabel.text = viewModel.getEmail()
+        genderLabel.text = viewModel.getGender()
+        locationLabel.text = viewModel.getLocation()
+        registeredDateLabel.text = viewModel.getRegisteredDate()
+    }
+    
+    private func setCircleAvatar() {
+        userImageView.layer.masksToBounds = false
+        userImageView.layer.borderColor = UIColor.black.cgColor
+        userImageView.layer.cornerRadius = userImageView.frame.height/2
+        userImageView.clipsToBounds = true
+        userImageView.backgroundColor = .lightGray
     }
 }
