@@ -19,56 +19,56 @@ enum UserDetail {
         }
         struct ViewModel {
             let user: User
-            
+
             func getGender() -> String {
                 return user.gender?.capitalized ?? "No gender"
             }
-            
+
             func getLocation() -> String {
                 var location: String = ""
-                
+
                 if let street = user.location?.street {
                     location = location + street
                 }
-                
+
                 if let city = user.location?.city {
                     if !location.isEmpty {
                         location = location + ", "
                     }
                     location = location + city
                 }
-                
+
                 if let state = user.location?.state {
                     if !location.isEmpty {
                         location = location + ", "
                     }
                     location = location + state
                 }
-                
+
                 if location.isEmpty {
                     location = "No Location"
                 }
-                
+
                 return location
             }
-            
+
             func getRegisteredDate() -> String {
                 guard let registeredDate = user.registered?.date else {
                     return "No registered date"
                 }
                 let dateFormatterGet = DateFormatter()
                 dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                
+
                 let dateFormatterPrint = DateFormatter()
                 dateFormatterPrint.dateFormat = "MMM dd,yyyy"
-                
+
                 if let date = dateFormatterGet.date(from: registeredDate) {
                     return dateFormatterPrint.string(from: date)
                 } else {
                     return registeredDate
                 }
             }
-            
+
             /// Format User name with First name and Last name
             ///
             /// - Returns: returns formated value, never returns nil
@@ -89,7 +89,7 @@ enum UserDetail {
                 }
                 return avatarUrl
             }
-            
+
             /// Get user Email
             ///
             /// - Returns: returns email value, never returns nil

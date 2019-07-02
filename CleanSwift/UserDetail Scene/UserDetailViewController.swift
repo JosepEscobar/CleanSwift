@@ -16,7 +16,7 @@ protocol UserDetailDisplayLogic: class {
 class UserDetailViewController: UIViewController, UserDetailDisplayLogic {
     var interactor: UserDetailBusinessLogic?
     var router: (NSObjectProtocol & UserDetailRoutingLogic & UserDetailDataPassing)?
-    
+
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -82,7 +82,7 @@ class UserDetailViewController: UIViewController, UserDetailDisplayLogic {
         locationLabel.text = viewModel.getLocation()
         registeredDateLabel.text = viewModel.getRegisteredDate()
     }
-    
+
     private func setCircleAvatar() {
         userImageView.layer.masksToBounds = false
         userImageView.layer.borderColor = UIColor.black.cgColor
