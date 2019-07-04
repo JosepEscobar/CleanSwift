@@ -14,6 +14,8 @@ protocol UserListPresentationLogic {
     func presentSearchResults(response: UserList.SearchData.Response)
     func presentSearchCancel(response: UserList.SearchCancel.Response)
     func presentDeletedUserFromArray(response: UserList.DeleteUser.Response)
+    func presentStartSpinner()
+    func presentStopSpinner()
 }
 
 class UserListPresenter: UserListPresentationLogic {
@@ -29,6 +31,7 @@ class UserListPresenter: UserListPresentationLogic {
     func presentUserDetail(response: UserList.UserDetail.Response) {
         let viewModel = UserList.UserDetail.ViewModel()
         viewController?.displayUserDetail(viewModel: viewModel)
+        viewController?.displayDeselectRow(indexPath: response.indexPath)
     }
 
     func presentSearchResults(response: UserList.SearchData.Response) {
@@ -42,6 +45,14 @@ class UserListPresenter: UserListPresentationLogic {
 
     func presentDeletedUserFromArray(response: UserList.DeleteUser.Response) {
         viewController?.displayDeleteRow(indexPath: response.indexPath, firstUsersArray: response.firstUsersArray, secondUsersArray: response.secondUsersArray)
+    }
+    
+    func presentStartSpinner() {
+        viewController?.displayStartSpinner()
+    }
+    
+    func presentStopSpinner() {
+        viewController?.displayStopSpinner()
     }
 
 }

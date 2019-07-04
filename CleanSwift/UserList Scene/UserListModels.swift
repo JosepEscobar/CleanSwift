@@ -171,8 +171,10 @@ enum UserList {
     enum UserDetail {
         struct Request {
             let user: User
+            let indexPath: IndexPath
         }
         struct Response {
+            let indexPath: IndexPath
         }
         struct ViewModel {
         }
