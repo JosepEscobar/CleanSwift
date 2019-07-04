@@ -15,6 +15,9 @@ protocol UserListDisplayLogic: class {
     func displaySearchResults(viewModel: UserList.SearchData.ViewModel)
     func displaySearchResultsCanceled()
     func displayDeleteRow(indexPath: IndexPath, firstUsersArray: [User], secondUsersArray: [User])
+    func displayDeselectRow(indexPath: IndexPath)
+    func displayStartSpinner()
+    func displayStopSpinner()
 }
 
 class UserListViewController: UIViewController, UserListDisplayLogic {
@@ -84,7 +87,6 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     }
 
     func loadInitialData() {
-        SVProgressHUD.show()
         let request = UserList.LoadData.Request(users: nil)
         interactor?.doLoadInitialData(request: request)
     }
@@ -92,7 +94,6 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
     func displayInitialData(viewModel: UserList.LoadData.ViewModel) {
         self.viewModel = viewModel
         tableView.reloadData()
-        SVProgressHUD.dismiss()
     }
 
     func displaySearchResults(viewModel: UserList.SearchData.ViewModel) {
@@ -115,14 +116,25 @@ class UserListViewController: UIViewController, UserListDisplayLogic {
         }
         self.tableView.deleteRows(at: [indexPath], with: .fade)
     }
+    
+    func displayDeselectRow(indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func displayStartSpinner() {
+        SVProgressHUD.show()
+    }
+    
+    func displayStopSpinner() {
+        SVProgressHUD.dismiss()
+    }
 }
 
 extension UserListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = viewModel.users[indexPath.row]
-        let request = UserList.UserDetail.Request(user: user)
+        let request = UserList.UserDetail.Request(user: user, indexPath: indexPath)
         interactor?.doLoadUserDetail(request: request)
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

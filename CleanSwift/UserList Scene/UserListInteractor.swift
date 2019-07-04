@@ -22,17 +22,19 @@ protocol UserListDataStore {
 }
 
 class UserListInteractor: UserListBusinessLogic, UserListDataStore {
-
+ 
     var presenter: UserListPresentationLogic?
     var worker: UserListWorker?
     var user: User?
 
     // MARK: Do something
     func doLoadInitialData(request: UserList.LoadData.Request) {
+        presenter?.presentStartSpinner()
         worker = UserListWorker()
         worker?.fetchUsers(completionHandler: { users in
             let response = UserList.LoadData.Response(users: users)
             self.presenter?.presentData(response: response)
+            self.presenter?.presentStopSpinner()
         })
     }
 
@@ -48,7 +50,7 @@ class UserListInteractor: UserListBusinessLogic, UserListDataStore {
 
     func doLoadUserDetail(request: UserList.UserDetail.Request) {
         user = request.user
-        let response = UserList.UserDetail.Response()
+        let response = UserList.UserDetail.Response(indexPath: request.indexPath)
         presenter?.presentUserDetail(response: response)
     }
 
